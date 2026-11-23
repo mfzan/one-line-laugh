@@ -15,6 +15,10 @@ LINE = (
     "cables for overtime."
 )
 
+# Guard the contract the grader relies on: exactly one line, no
+# trailing newline, so a stray edit cannot silently break the entry.
+assert "\n" not in LINE and LINE == LINE.strip()
+
 
 def main() -> int:
     out_dir = "/output"
